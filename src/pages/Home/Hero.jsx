@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa';
+import TooltipButton from '../../components/TooltipButton';
 
 function Hero() {
   return (
@@ -19,7 +20,7 @@ function Hero() {
             placeholder="Search furniture"
             className="w-full md:w-80 bg-white/20 mx-auto rounded-full border border-gray-300 focus:outline-none placeholder:text-white p-2"
           />
-          <div className="absolute right-5 top-2 bg-amber-300 p-1 rounded-full">
+          <div className="absolute right-5 top-1 bg-amber-300 p-2 rounded-full">
             <FaSearch className="" />
           </div>
         </div>
@@ -28,6 +29,15 @@ function Hero() {
       <div className="absolute inset-0 -mb-2 bottom-0   bg-gradient-to-t from-white via-transparent to-transparent blur-sm"></div>
 
       {/* hover button for displaying box  */}
+      <div className="hidden xl:block absolute bottom-40 left-24">
+        <TooltipButton position="bottom" />
+      </div>
+      <div className="hidden xl:block absolute bottom-52 left-96">
+        <TooltipButton position="bottom" />
+      </div>
+      <div className="hidden xl:block absolute bottom-25 right-[82px]">
+        <TooltipButton position="bottom" />
+      </div>
     </section>
   );
 }

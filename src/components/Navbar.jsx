@@ -39,8 +39,8 @@ function Navbar() {
   };
 
   return (
-    <header className="container mx-auto py-8 px-8">
-      <nav className="max-w-screen-2xl container mx-auto space-y-8 flex justify-between items-center w-full">
+    <header className="fixed top-0 left-0 right-0 z-50  ">
+      <nav className=" container  text-white  mx-auto flex justify-between items-center px-14 py-6 ">
         {/* Logo */}
         <NavLink to="/" className="text-xl font-bold">
           Panto
@@ -59,25 +59,20 @@ function Navbar() {
         {/* Mobile Menu */}
 
         {isOpen && (
-          <div className="absolute top-0 left-0 w-full h-screen bg-transparent opacity-80 flex flex-col items-center justify-center ">
-            <NavLink
-              to="/"
-              className="text-xl font-bold absolute top-0 left-0  cursor-pointer"
-            >
-              Panto
-            </NavLink>
+          <div className="absolute top-0 left-0 w-full h-screen  flex flex-col items-center justify-center ">
+            
             <div
-              className="absolute top-0 right-0 text-3xl cursor-pointer"
+              className="absolute  top-8 right-14 text-3xl cursor-pointer"
               onClick={toggleMenu}
             >
-              <RxCross2 />
+              <RxCross2 className="text-white text-3xl"/>
             </div>
             <NavItemsList toggleMenu={toggleMenu} />
           </div>
         )}
 
         {/* Shopping Cart Icon */}
-        <div className=" hidden md:block relative">
+        <div className=" hidden md:block relative cursor-pointer">
           <AiOutlineShoppingCart className="text-2xl" />
           <span className="absolute -top-2 -right-3 bg-amber-400 rounded-full text-white h-4 w-4 flex items-center justify-center">
             9
