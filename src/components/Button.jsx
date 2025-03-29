@@ -6,7 +6,7 @@ function Button({ text }) {
       <div className="flex justify-center items-center gap-3">
         {" "}
         {text}
-        <img src="/btn-icon.png" alt="Arrow-Icon" />
+        <img src="/btn-icon.png" alt="Arrow-Icon"  />
       </div>
     </button>
   );
