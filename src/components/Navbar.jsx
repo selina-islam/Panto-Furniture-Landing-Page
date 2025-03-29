@@ -40,7 +40,7 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50  ">
-      <nav className=" container  text-white  mx-auto flex justify-between items-center px-14 py-6 ">
+      <nav className="section-container text-white  mx-auto flex justify-between items-center">
         {/* Logo */}
         <NavLink to="/" className="text-xl font-bold">
           Panto
@@ -60,12 +60,11 @@ function Navbar() {
 
         {isOpen && (
           <div className="absolute top-0 left-0 w-full h-screen  flex flex-col items-center justify-center ">
-            
             <div
               className="absolute  top-8 right-14 text-3xl cursor-pointer"
               onClick={toggleMenu}
             >
-              <RxCross2 className="text-white text-3xl"/>
+              <RxCross2 className="text-white text-3xl" />
             </div>
             <NavItemsList toggleMenu={toggleMenu} />
           </div>

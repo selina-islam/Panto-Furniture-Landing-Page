@@ -17,3 +17,6 @@
 body{
 @apply font-poppins
 }
+.section-container{
+        @apply max-w-screen-2xl container mx-auto py-6 px-4;
+}
