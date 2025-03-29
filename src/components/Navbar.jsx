@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaBars } from "react-icons/fa6";
@@ -21,7 +21,7 @@ const NavItemsList = ({ toggleMenu }) => {
           <NavLink
             to={item.path}
             className={({ isActive }) =>
-              isActive ? "text-pink-800 font-bold" : "hover:text-purple-800"
+              isActive ? "text-amber-500 font-bold" : "hover:text-purple-800"
             }
           >
             {item.label}
@@ -34,12 +34,37 @@ const NavItemsList = ({ toggleMenu }) => {
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
 
+  //when scrolled apply background color to navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50  ">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition duration-300 ease-in-out ${
+        isScrolled
+          ? "text-black bg-black shadow-md "
+          : "bg-transparent text-white"
+      }`}
+    >
       <nav className="section-container text-white  mx-auto flex justify-between items-center">
         {/* Logo */}
         <NavLink to="/" className="text-xl font-bold">
